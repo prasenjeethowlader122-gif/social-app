@@ -23,10 +23,10 @@ module.exports = function (_config) {
   const IS_DEV = !IS_TESTFLIGHT && !IS_PRODUCTION
 
   const ASSOCIATED_DOMAINS = [
-    'applinks:bsky.app',
-    'applinks:staging.bsky.app',
-    'appclips:bsky.app',
-    'appclips:go.bsky.app', // Allows App Clip to work when scanning QR codes
+    'applinks:parallaxa.app',
+    'applinks:staging.parallaxa.app',
+    'appclips:parallaxa.app',
+    'appclips:go.parallaxa.app', // Allows App Clip to work when scanning QR codes
     // When testing local services, enter an ngrok (et al) domain here. It must use a standard HTTP/HTTPS port.
     ...(IS_DEV || IS_TESTFLIGHT ? [] : []),
   ]
@@ -45,20 +45,20 @@ module.exports = function (_config) {
   return {
     expo: {
       version: VERSION,
-      name: 'Bluesky',
-      slug: 'bluesky',
-      scheme: 'bluesky',
-      owner: 'blueskysocial',
+      name: 'Parallaxa',
+      slug: 'parallaxa',
+      scheme: 'parallaxa',
+      owner: 'parallaxa',
       runtimeVersion: {
         policy: 'appVersion',
       },
       icon: './assets/app-icons/ios_icon_default_next.png',
       userInterfaceStyle: 'automatic',
-      primaryColor: '#006AFF',
+      primaryColor: '#7C3AED',
       newArchEnabled: false,
       ios: {
         supportsTablet: false,
-        bundleIdentifier: 'xyz.blueskyweb.app',
+        bundleIdentifier: 'com.parallaxa.app',
         config: {
           usesNonExemptEncryption: false,
         },
@@ -74,7 +74,7 @@ module.exports = function (_config) {
             'Used to save images to your library.',
           NSPhotoLibraryUsageDescription:
             'Used for profile pictures, posts, and other kinds of content',
-          CFBundleSpokenName: 'Blue Sky',
+          CFBundleSpokenName: 'Parallaxa',
           CFBundleLocalizations: [
             'en',
             'an',
@@ -122,7 +122,7 @@ module.exports = function (_config) {
         entitlements: {
           'com.apple.developer.kernel.increased-memory-limit': true,
           'com.apple.developer.kernel.extended-virtual-addressing': true,
-          'com.apple.security.application-groups': 'group.app.bsky',
+          'com.apple.security.application-groups': 'group.app.parallaxa',
           // 'com.apple.developer.device-information.user-assigned-device-name': true,
         },
         privacyManifests: {
@@ -189,10 +189,10 @@ module.exports = function (_config) {
         adaptiveIcon: {
           foregroundImage: './assets/icon-android-foreground.png',
           monochromeImage: './assets/icon-android-monochrome.png',
-          backgroundColor: '#006AFF',
+          backgroundColor: '#7C3AED',
         },
         googleServicesFile: './google-services.json',
-        package: 'xyz.blueskyweb.app',
+        package: 'com.parallaxa.app',
         intentFilters: [
           {
             action: 'VIEW',
@@ -200,7 +200,7 @@ module.exports = function (_config) {
             data: [
               {
                 scheme: 'https',
-                host: 'bsky.app',
+                host: 'parallaxa.app',
               },
               ...(IS_DEV
                 ? [
@@ -246,7 +246,7 @@ module.exports = function (_config) {
               /** @type {[string, any]} */ ([
                 '@sentry/react-native/expo',
                 {
-                  organization: 'blueskyweb',
+                  organization: 'parallaxa',
                   project: 'app',
                   url: 'https://sentry.io',
                 },
@@ -280,7 +280,7 @@ module.exports = function (_config) {
           'expo-notifications',
           {
             icon: './assets/icon-android-notification.png',
-            color: '#1185fe',
+            color: '#7C3AED',
             sounds: PLATFORM === 'ios' ? ['assets/dm.aiff'] : ['assets/dm.mp3'],
           },
         ],
@@ -323,22 +323,22 @@ module.exports = function (_config) {
           {
             ios: {
               enableFullScreenImage_legacy: true, // iOS only
-              backgroundColor: '#006AFF', // primary_500
+              backgroundColor: '#7C3AED', // primary_500
               image: './assets/splash/splash.png',
               resizeMode: 'cover',
               dark: {
                 enableFullScreenImage_legacy: true, // iOS only
-                backgroundColor: '#002861', // primary_900
+                backgroundColor: '#5B21B6', // primary_900
                 image: './assets/splash/splash-dark.png',
                 resizeMode: 'cover',
               },
             },
             android: {
-              backgroundColor: '#006AFF', // primary_500
+              backgroundColor: '#7C3AED', // primary_500
               image: './assets/splash/android-splash-logo-white.png',
               imageWidth: 102, // even division of 306px
               dark: {
-                backgroundColor: '#002861', // primary_900
+                backgroundColor: '#5B21B6', // primary_900
                 image: './assets/splash/android-splash-logo-white.png',
                 imageWidth: 102,
               },
