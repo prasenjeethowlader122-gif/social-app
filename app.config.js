@@ -23,10 +23,10 @@ module.exports = function (_config) {
   const IS_DEV = !IS_TESTFLIGHT && !IS_PRODUCTION
 
   const ASSOCIATED_DOMAINS = [
-    'applinks:bsky.app',
-    'applinks:staging.bsky.app',
-    'appclips:bsky.app',
-    'appclips:go.bsky.app', // Allows App Clip to work when scanning QR codes
+    'applinks:parallaxa.app',
+    'applinks:staging.parallaxa.app',
+    'appclips:parallaxa.app',
+    'appclips:go.parallaxa.app', // Allows App Clip to work when scanning QR codes
     // When testing local services, enter an ngrok (et al) domain here. It must use a standard HTTP/HTTPS port.
     ...(IS_DEV || IS_TESTFLIGHT ? [] : []),
   ]
@@ -45,10 +45,10 @@ module.exports = function (_config) {
   return {
     expo: {
       version: VERSION,
-      name: 'Bluesky',
-      slug: 'bluesky',
-      scheme: 'bluesky',
-      owner: 'blueskysocial',
+      name: 'Parallaxa',
+      slug: 'parallaxa',
+      scheme: 'parallaxa',
+      owner: 'parallaxa-team',
       runtimeVersion: {
         policy: 'appVersion',
       },
@@ -58,7 +58,7 @@ module.exports = function (_config) {
       newArchEnabled: false,
       ios: {
         supportsTablet: false,
-        bundleIdentifier: 'xyz.blueskyweb.app',
+        bundleIdentifier: 'xyz.parallaxa.app',
         config: {
           usesNonExemptEncryption: false,
         },
@@ -74,7 +74,7 @@ module.exports = function (_config) {
             'Used to save images to your library.',
           NSPhotoLibraryUsageDescription:
             'Used for profile pictures, posts, and other kinds of content',
-          CFBundleSpokenName: 'Blue Sky',
+          CFBundleSpokenName: 'Parallaxa',
           CFBundleLocalizations: [
             'en',
             'an',
@@ -122,7 +122,7 @@ module.exports = function (_config) {
         entitlements: {
           'com.apple.developer.kernel.increased-memory-limit': true,
           'com.apple.developer.kernel.extended-virtual-addressing': true,
-          'com.apple.security.application-groups': 'group.app.bsky',
+          'com.apple.security.application-groups': 'group.app.parallaxa',
           // 'com.apple.developer.device-information.user-assigned-device-name': true,
         },
         privacyManifests: {
@@ -192,7 +192,7 @@ module.exports = function (_config) {
           backgroundColor: '#006AFF',
         },
         googleServicesFile: './google-services.json',
-        package: 'xyz.blueskyweb.app',
+        package: 'xyz.parallaxa.app',
         intentFilters: [
           {
             action: 'VIEW',
@@ -200,7 +200,7 @@ module.exports = function (_config) {
             data: [
               {
                 scheme: 'https',
-                host: 'bsky.app',
+                host: 'parallaxa.app',
               },
               ...(IS_DEV
                 ? [
@@ -219,7 +219,7 @@ module.exports = function (_config) {
         favicon: './assets/favicon.png',
       },
       updates: {
-        url: 'https://updates.bsky.app/manifest',
+        url: 'https://updates.parallaxa.app/manifest',
         enabled: UPDATES_ENABLED,
         fallbackToCacheTimeout: 30000,
         codeSigningCertificate: UPDATES_ENABLED
@@ -246,7 +246,7 @@ module.exports = function (_config) {
               /** @type {[string, any]} */ ([
                 '@sentry/react-native/expo',
                 {
-                  organization: 'blueskyweb',
+                  organization: 'parallaxa',
                   project: 'app',
                   url: 'https://sentry.io',
                 },
@@ -418,7 +418,7 @@ module.exports = function (_config) {
           'expo-contacts',
           {
             contactsPermission:
-              'I agree to allow Bluesky to use my contacts for friend discovery until I opt out.',
+              'I agree to allow Parallaxa to use my contacts for friend discovery until I opt out.',
           },
         ],
       ],
@@ -429,32 +429,32 @@ module.exports = function (_config) {
               ios: {
                 appExtensions: [
                   {
-                    targetName: 'Share-with-Bluesky',
-                    bundleIdentifier: 'xyz.blueskyweb.app.Share-with-Bluesky',
+                    targetName: 'Share-with-Parallaxa',
+                    bundleIdentifier: 'xyz.parallaxa.app.Share-with-Parallaxa',
                     entitlements: {
                       'com.apple.security.application-groups': [
-                        'group.app.bsky',
+                        'group.app.parallaxa',
                       ],
                     },
                   },
                   {
-                    targetName: 'BlueskyNSE',
-                    bundleIdentifier: 'xyz.blueskyweb.app.BlueskyNSE',
+                    targetName: 'ParallaxaNSE',
+                    bundleIdentifier: 'xyz.parallaxa.app.ParallaxaNSE',
                     entitlements: {
                       'com.apple.security.application-groups': [
-                        'group.app.bsky',
+                        'group.app.parallaxa',
                       ],
                     },
                   },
                   {
-                    targetName: 'BlueskyClip',
-                    bundleIdentifier: 'xyz.blueskyweb.app.AppClip',
+                    targetName: 'ParallaxaClip',
+                    bundleIdentifier: 'xyz.parallaxa.app.AppClip',
                   },
                 ],
               },
             },
           },
-          projectId: '55bd077a-d905-4184-9c7f-94789ba0f302',
+          projectId: 'a1b2c3d4-e5f6-4789-abcd-ef1234567890',
         },
       },
     },

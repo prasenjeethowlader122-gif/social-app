@@ -1,6 +1,6 @@
 {
-  "name": "bsky.app",
-  "version": "1.121.0",
+  "name": "parallaxa",
+  "version": "1.0.0",
   "private": true,
   "engines": {
     "node": ">=20"
@@ -327,9 +327,7 @@
       "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|@discord|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|nanoid|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|normalize-url|react-native-svg|@sentry/.*|sentry-expo|bcp-47-match)"
     ],
     "modulePathIgnorePatterns": [
-      "__tests__/.*/__mocks__",
-      "__e2e__/.*",
-      "bskylink/.*"
+      "node_modules"
     ],
     "coveragePathIgnorePatterns": [
       "<rootDir>/node_modules/",
